@@ -2,8 +2,8 @@ require "formula"
 
 class Dynare < Formula
   homepage "http://www.dynare.org"
-  url "https://www.dynare.org/release/source/dynare-4.4.1.tar.xz"
-  sha1 "ded88d6cacc027179e7885af78a05b2dd733ba13"
+  url "https://www.dynare.org/release/source/dynare-4.4.2.tar.xz"
+  sha1 "be2c6da37f95dc1469edba2759ee1ad05401a6f3"
 
   option "with-matlab=</full/path/to/MATLAB_VER.app>", "Build mex files for Matlab"
   option "with-matlab-version=<VER>", "The version of Matlab pointed to by --with-matlab. E.g. 8.2"
