@@ -10,6 +10,7 @@ class Dynare < Formula
   option "with-matlab-version=<VER>", \
   "The version of Matlab pointed to by --with-matlab. E.g. 8.2"
   option "with-doc", "Build Dynare documentation"
+  option "without-check", "Disable build-time checking (not recommended)"
 
   depends_on "octave"=> :recommended
   depends_on :fortran
@@ -108,6 +109,9 @@ class Dynare < Formula
     # Install dynare++ executable
     bin.install("dynare++/src/dynare++")
 
+    # Install examples
+    (share/"dynare/").install "examples"
+
     # Install documentation
     doc.install "doc/dynare.pdf", "doc/bvar-a-la-sims.pdf", "doc/dr.pdf", \
     "doc/guide.pdf", "doc/macroprocessor/macroprocessor.pdf", \
@@ -115,6 +119,20 @@ class Dynare < Formula
     "doc/userguide/UserGuide.pdf", "doc/gsa/gsa.pdf" \
     if build.with? "doc"
   end
+
+  test do
+    copy("#{share}/dynare/examples/bkk.mod", testpath)
+    if build.with? "octave"
+      system "octave --no-gui -H " \
+      "--path #{HOMEBREW_PREFIX}/share/dynare/matlab " \
+      "--eval 'dynare bkk.mod console'"
+    end
+    matlab_path = ARGV.value("with-matlab") || ""
+    if !matlab_path.empty?
+      system "#{matlab_path}/bin/matlab -nosplash -nodisplay " \
+      "-r 'addpath #{HOMEBREW_PREFIX}/share/dynare/matlab; " \
+      "dynare bkk.mod console'"
+    end
   end
 
   def caveats
