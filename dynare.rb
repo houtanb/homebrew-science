@@ -102,8 +102,8 @@ class Dynare < Formula
     if (!matlab_version.empty? && !matlab_version.empty?)
 
     # Install Matlab/Octave m files
-    (share/"dynare/").install Dir["matlab"]
-    (share/"dynare/contrib/ms-sbvar/").install Dir["contrib/ms-sbvar/TZcode"]
+    (share/"dynare/").install "matlab"
+    (share/"dynare/contrib/ms-sbvar/").install "contrib/ms-sbvar/TZcode"
 
     # Install dynare++ executable
     bin.install("dynare++/src/dynare++")
