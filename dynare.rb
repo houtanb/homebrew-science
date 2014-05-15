@@ -16,6 +16,7 @@ class Dynare < Formula
   depends_on "libmatio"
   depends_on "matlab2tikz"
   depends_on "graphicsmagick" if build.with? "octave"
+  depends_on "xz" => :build
   depends_on "boost" => :build
   depends_on "homebrew/science/slicot" => ("with-default-integer-8" if build.with? "matlab")
   depends_on :tex => :build if build.with? "doc"
