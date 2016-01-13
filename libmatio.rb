@@ -1,8 +1,8 @@
 class Libmatio < Formula
   homepage "http://matio.sourceforge.net"
-  url "https://downloads.sourceforge.net/project/matio/matio/1.5.2/matio-1.5.2.tar.gz"
-  sha256 "db02d0fb3373c3d766a606309b17e64a5d8da55610e921a9f1a0ec171e911d45"
-  revision 1
+  url "https://downloads.sourceforge.net/project/matio/matio/1.5.3/matio-1.5.3.tar.gz"
+  version "1.5.3"
+  sha256 "3a1e131f7c2855b4873e2388b2f5028f117691d02af991421d4459a219ed1f19"
 
   bottle do
     cellar :any
